@@ -25,7 +25,6 @@ def get_domain(lst1, lst2):
     return lst1.split('@')[1]
 
 
-
 def print_return():
     """Print return."""
     print('\n')
