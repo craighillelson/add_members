@@ -1,2 +1,2 @@
 # add_members
-add members to a csv
+Python 3.8 script to add users to a csv.
