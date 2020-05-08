@@ -31,7 +31,10 @@ def print_return():
 
 
 def prompt_user_for_domain(a):
-    """ __doc__ """
+    """
+    After extracting the domain from an email address, prompt the user to
+    add more email addresses for that domain or another.
+    """
     print_return()
     while True:
         answers = ['yes', 'no']
