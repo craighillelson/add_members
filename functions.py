@@ -52,7 +52,7 @@ def prompt_user_for_domain(a):
 
 
 def prompt_user_for_prefix(a, b):
-    """ __doc__ """
+    """Prompt user for email prefixes."""
     lst = []
     while True:
         print('Enter the employee\'s name (or enter nothing to stop.):')
@@ -69,7 +69,7 @@ def prompt_user_for_prefix(a, b):
 
 
 def concat_lists(lst1, lst2):
-    """ __doc__ """
+    """Concatenate lists."""
     return lst1 + lst2
 
 
