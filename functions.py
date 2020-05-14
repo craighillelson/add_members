@@ -1,5 +1,7 @@
 """Functions."""
 
+import pyinputplus as pyip
+
 
 def open_csv_populate_lst(file_name):
     """Open a csv and populate a dictionary."""
@@ -37,12 +39,9 @@ def prompt_user_for_domain(a):
     """
     print_return()
     while True:
-        answers = ['yes', 'no']
         print(f'Is {a} your domain (yes or no)?')
-        answer = input('> ')
-        if answer not in answers:
-            print('please answer \'yes\' or \'no\'')
-        elif answer != 'yes':
+        answer = pyip.inputYesNo('> ')
+        if answer != 'yes':
             a = input('What is your domain name?\n> ')
             break
         else:
