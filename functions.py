@@ -73,7 +73,7 @@ def concat_lists(lst1, lst2):
 
 
 def write_lst_to_csv(file, LST, HEADER):
-    """Write list to csv """
+    """Write list to csv."""
     import csv
 
     with open(file, 'w') as out_file:
