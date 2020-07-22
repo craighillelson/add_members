@@ -37,9 +37,8 @@ def prompt_user_for_domain(a):
     After extracting the domain from an email address, prompt the user to
     add more email addresses for that domain or another.
     """
-    print_return()
     while True:
-        print(f'Is {a} your domain (yes or no)?')
+        print(f'\nIs {a} your domain (yes or no)?')
         answer = pyip.inputYesNo('> ')
         if answer != 'yes':
             a = input('What is your domain name?\n> ')
