@@ -21,7 +21,7 @@ def open_csv_populate_lst(file_name):
     return lst
 
 
-def get_domain(lst1, lst2):
+def get_domain(lst2):
     """Extract the domain from an email address."""
     lst1 = lst2[0]
     return lst1.split('@')[1]
