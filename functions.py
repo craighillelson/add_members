@@ -1,12 +1,11 @@
 """Functions."""
 
 import pyinputplus as pyip
-
+import csv
+from collections import namedtuple
 
 def open_csv_populate_lst(file_name):
     """Open a csv and populate a dictionary."""
-    import csv
-    from collections import namedtuple
 
     lst = []
 
@@ -23,6 +22,7 @@ def open_csv_populate_lst(file_name):
 
 def get_domain(lst2):
     """Extract the domain from an email address."""
+
     lst1 = lst2[0]
     return lst1.split('@')[1]
 
@@ -51,6 +51,7 @@ def prompt_user_for_domain(a):
 
 def prompt_user_for_prefix(a, b):
     """Prompt user for email prefixes."""
+
     lst = []
     while True:
         print('Enter the employee\'s name (or enter nothing to stop.):')
@@ -68,12 +69,12 @@ def prompt_user_for_prefix(a, b):
 
 def concat_lists(lst1, lst2):
     """Concatenate lists."""
+
     return lst1 + lst2
 
 
 def write_lst_to_csv(file, LST, HEADER):
     """Write list to csv."""
-    import csv
 
     with open(file, 'w') as out_file:
         out_csv = csv.writer(out_file)
