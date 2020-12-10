@@ -1,20 +1,21 @@
 """Functions."""
 
-import pyinputplus as pyip
-import csv
 from collections import namedtuple
+import csv
+import pyinputplus as pyip
+
 
 def open_csv_populate_lst(file_name):
-    """Open a csv and populate a dictionary."""
+    """Open a csv and populate a list."""
 
     lst = []
 
-    with open(file_name) as f:
-        f_csv = csv.reader(f)
+    with open(file_name) as csv_file:
+        f_csv = csv.reader(csv_file)
         headings = next(f_csv)
-        Row = namedtuple('Row', headings)
-        for r in f_csv:
-            row = Row(*r)
+        member_row = namedtuple('Row', headings)
+        for email in f_csv:
+            row = member_row(*email)
             lst.append(row.email)
 
     return lst
@@ -27,44 +28,39 @@ def get_domain(lst2):
     return lst1.split('@')[1]
 
 
-def print_return():
-    """Print return."""
-    print('\n')
-
-
-def prompt_user_for_domain(a):
+def prompt_user_for_domain(domain):
     """
     After extracting the domain from an email address, prompt the user to
     add more email addresses for that domain or another.
     """
+
     while True:
-        print(f'\nIs {a} your domain (yes or no)?')
+        print(f'\nIs {domain} your domain (yes or no)?')
         answer = pyip.inputYesNo('> ')
         if answer != 'yes':
-            a = input('What is your domain name?\n> ')
-            break
+            domain = input('What is your domain name?\n> ')
         else:
             break
 
-    return a
+    return domain
 
 
-def prompt_user_for_prefix(a, b):
+def prompt_user_for_prefix(domain, lst2):
     """Prompt user for email prefixes."""
 
-    lst = []
+    lst1 = []
     while True:
         print('Enter the employee\'s name (or enter nothing to stop.):')
         email_prefix = input('> ')
-        email = email_prefix + '@' + a
-        if email not in b:
+        email = email_prefix + '@' + domain
+        if email not in lst2:
             if email_prefix == '':
                 break
-            lst = lst + [email]
+            lst1 = lst1 + [email]
         else:
             print(f'{email} is already in the list')
 
-    return lst
+    return lst1
 
 
 def concat_lists(lst1, lst2):
@@ -73,16 +69,13 @@ def concat_lists(lst1, lst2):
     return lst1 + lst2
 
 
-def write_lst_to_csv(file, LST, HEADER):
+def write_lst_to_csv(file, lst, header):
     """Write list to csv."""
 
     with open(file, 'w') as out_file:
         out_csv = csv.writer(out_file)
-        out_csv.writerow(HEADER)
-        for i in LST:
+        out_csv.writerow(header)
+        for i in lst:
             out_csv.writerow([i])
 
-        print_return()
-        print(f'"{file}" exported successfully')
-
-    print_return()
+        print(f'\n"{file}" exported successfull\n')
